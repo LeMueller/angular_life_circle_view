@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked } from '@angular/core';
 import { ChildComponent } from './child/child.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { ChildComponent } from './child/child.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked {
 
   @ViewChild("child1")
   child1:ChildComponent;
@@ -20,9 +20,9 @@ export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    setInterval(()=>{
-      this.child1.greeting("Tom");
-    } , 5000);
+    // setInterval(()=>{
+    //   this.child1.greeting("Tom");
+    // } , 5000);
   }
 
   ngAfterViewInit() {
@@ -32,9 +32,9 @@ export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked {
     // this.message="hallo";
 
     // 如果需要在这里改变值，要用在setTimeout里，让它在另一个运行周期里运行
-    setTimeout(()=>{
-      this.message="hallo";
-    }, 0);
+    // setTimeout(()=>{
+    //   this.message="hallo";
+    // }, 0);
   }
 
   ngAfterViewChecked() {
@@ -42,5 +42,14 @@ export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
     // 跑出异常。Angular不允许在视图组建好后，改变值。如React里render函数里不能setState
     // this.message="hallo";
+  }
+
+  ngAfterContentInit() {
+    console.log("父组件投影内容初始化完毕");
+    
+  }
+
+  ngAfterContentChecked() {
+    console.log("父组件投影内容变更检测完毕");
   }
 }
