@@ -13,6 +13,8 @@ export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   message: string;
 
+  xxx: string = "我是xxx属性的值";
+
   constructor() {
 
   }

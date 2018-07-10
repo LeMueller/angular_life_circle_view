@@ -5,3 +5,17 @@
 <button (click)="child2.greeting('Jerry')">调用child2的greeting方法</button>
 <br>
 <div>{{message}}</div>
+
+<br>
+<br>
+<br>
+
+<app-red-border>
+  <!-- 组件的子节点作为投影 -->
+  <div class="red">
+    这里是红框内的内容 {{xxx}}
+  </div>
+  <div class="green">
+    这里是绿框内的内容
+  </div>
+</app-red-border>

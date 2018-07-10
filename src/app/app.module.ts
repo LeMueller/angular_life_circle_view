@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ChildComponent } from './child/child.component';
+import { RedBorderComponent } from './red-border/red-border.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChildComponent
+    ChildComponent,
+    RedBorderComponent
   ],
   imports: [
     BrowserModule
