@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent implements OnInit {
+export class ChildComponent implements OnInit, OnDestroy {
 
   greeting(name:string):void {
     console.log(`Hello ${name}`);
@@ -23,6 +23,11 @@ export class ChildComponent implements OnInit {
 
   ngAfterViewChecked() {
     console.log("子组件的视图变更检测化完毕");
+  }
+
+  ngOnDestroy() {
+    console.log("child的组件被销毁");
+    
   }
 
 }
